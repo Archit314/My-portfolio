@@ -3,6 +3,9 @@
     padding: 0%;
     box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     background-color: black;
     color: white;
@@ -68,7 +71,7 @@ a:hover{
 .row{
     display: flex;
     justify-content: space-between;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
 }
 .about-col1{
     flex-basis: 35%;
@@ -194,6 +197,9 @@ a:hover{
 } 
  
 /* ----------------------------------------CONTACT CSS STARTS ------------------------------------- */
+.row{
+    margin: 40px 0 40px 0;
+}
 .contact-left{
     flex-basis: 35%;
 }
@@ -267,11 +273,70 @@ form input, form textarea{
     transition: 0.8s;
 }
 
-nav .fa-solid{
+nav .fas{
     display: none;
 }
 
 /* --------------------------------------RESPONSIVE PART STARTS ----------------------------------- */
 @media only screen and (max-width: 600px){
-    
+    .header-text{
+        margin-top: 40%;
+        font-size: 26px;
+    }
+    .header-text h1 span{
+        font-size: 50px;
+    }
+    .header-text h1{
+        font-size: 50px;
+    }
+    nav .fas{
+        display: block;
+        font-size: 28px;
+    }
+    .logo{
+        margin-top: 20px;
+        width: 38%;
+    }
+    nav ul{
+        background: #ff004f;
+        position:fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100%;
+        padding-top: 50px;
+        z-index: 2;
+        transition: right 0.5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 25px;
+    }
+    nav ul .fas{
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+    }
+    .sub-title{
+        font-size: 30px;
+    }
+    .about-col1, .about-col2{
+        flex-basis: 100%;
+    }
+    .about-col1 img{
+        width: 100%;
+    }
+    .container{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .tabs-lists{
+        color: yellow;
+        margin-right: 15px;
+        font-size: 15px;
+    }
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+    }
 }

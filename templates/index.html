@@ -16,15 +16,15 @@
         <div class="container">
             <nav>
                 <img src="images/logo.jpg" alt="error" class="logo">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <i class="fa-solid fa-xmark"></i>
+                <ul id="sidebar">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#service">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-sharp fas fa-xmark" onclick="closemenu()"></i>
                 </ul>
-                <i class="fa-solid fa-bars"></i>
+                <i class="fas fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
 
@@ -175,6 +175,17 @@
             }
             event.currentTarget.classList.add("active-list");
             document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
+    <!-- Script for onclick function for openmenu and closemenu  -->
+    <script>
+        var sidemenu = document.getElementById("sidebar");
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+        function closemenu(){
+            sidemenu.style.right = "-200px";
         }
     </script>
 </body>
