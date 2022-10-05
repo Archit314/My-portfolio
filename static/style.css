@@ -276,6 +276,11 @@ form input, form textarea{
 nav .fas{
     display: none;
 }
+#msg{
+    color: #61b752;
+    margin-top: 30px;
+    display: block;
+}
 
 /* --------------------------------------RESPONSIVE PART STARTS ----------------------------------- */
 @media only screen and (max-width: 600px){

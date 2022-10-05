@@ -144,12 +144,13 @@
                     </div>
                 </div>
                 <div class="contact-right">
-                   <form>
+                   <form name="submit-to-google-sheet">
                        <input type="text" name="Name" placeholder="your name" required>
                        <input type="email" name="email" placeholder="your email" required>
                        <textarea name="text" rows="6" placeholder="write message" required></textarea>
                        <button type="submit" class="btn">Submit</button>
                    </form> 
+                   <span id="msg"></span>
                 </div>
             </div>
         </div>
@@ -163,6 +164,7 @@
     </div>
 
 
+    <!-- THIS SCRIPT IS FOR THE FUNCTIONALITY OF THE THE TABS (LANGUAGES, PROJECT AND CLUB & EDUCATION) -->
     <script>
         var tabslists = document.getElementsByClassName("tabs-lists");
         var tabconts = document.getElementsByClassName("tab-content");
@@ -188,6 +190,27 @@
             sidemenu.style.right = "-200px";
         }
     </script>
+
+
+<!-- THIS SCRIPT IS FOR BACKEND OF CONTACT FORM IN WHICH DETAILS WILL BE SENT TO THE GOOGLE SHEET WHEN USER CLICK ON SUBMIT BUTTON  -->
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwfPvWvL5vDtsLL2UrTZBT1a9Jsb7FqcbS6dVvTG9wBNr2soIDBooVz_y1JXP7YFGyq/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Your form has been submited successfully!"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 </body>
 
 </html>
